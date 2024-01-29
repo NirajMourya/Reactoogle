@@ -2,6 +2,7 @@ import "./Home.css"
 import {Avatar} from "@material-ui/core";
 import AppsIcon from "@material-ui/icons/Apps";
 import {Link} from "react-router-dom";
+import Search from "../../components/Search/Search";
 
 export default function Home()
 {
@@ -24,7 +25,7 @@ export default function Home()
           alt="logo"
         />
         <div className="home__inputContainer">
-          {/* <Search /> */}
+          <Search/>
         </div>
       </div>
     </div>);
