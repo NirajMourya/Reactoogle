@@ -50,7 +50,10 @@
     color: #222;
   }
   
-  
+  .search__buttonsHidden {
+    display: none !important;
+    }
+    
   @media screen and (max-width: 750px) {
     .search {
       max-width: 560px;
