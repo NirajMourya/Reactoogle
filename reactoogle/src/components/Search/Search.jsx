@@ -4,15 +4,20 @@ import { Button } from "@material-ui/core";
 import "./Search.css";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 
 export default function Search({hideButtons})
 {
     const [term, setTerm] = useState("");
     const navigate = useNavigate();
-    
+    const dispatch = useDispatch();
     const search = (e) => {
         e.preventDefault();
         console.log("search!");
+        dispatch({
+          type: "SET_SEARCH_TERM",
+          term: term,
+        });
         navigate('/search');
       };
     
