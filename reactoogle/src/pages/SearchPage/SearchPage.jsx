@@ -3,10 +3,16 @@ import "./SearchPage.css";
 import Search from "../../components/Search/Search";
 import {Avatar} from "@material-ui/core";
 import AppsIcon from "@material-ui/icons/Apps";
+import { useSelector } from "react-redux";
+import useGoogleSearch from "../../useGoogleSearch";
 
 export default function SearchPage()
 {
-    return (<div className="searchPage">
+  const term = useSelector((state) => state.term);
+  
+  const { data } = useGoogleSearch(term);
+
+     return (<div className="searchPage">
         <div className="searchPage__header"> 
             <div className="searchPage__Top">
                <div className="searchPage__headerLeft">
