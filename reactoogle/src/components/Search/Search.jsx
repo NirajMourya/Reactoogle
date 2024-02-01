@@ -5,6 +5,7 @@ import "./Search.css";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
+import { Link } from 'react-router-dom';
 
 export default function Search({hideButtons})
 {
@@ -14,11 +15,14 @@ export default function Search({hideButtons})
     const search = (e) => {
         e.preventDefault();
         console.log("search!");
-        dispatch({
-          type: "SET_SEARCH_TERM",
-          term: term,
-        });
-        navigate('/search');
+        if(term)
+        {
+          dispatch({
+            type: "SET_SEARCH_TERM",
+            term: term,
+          });
+          navigate('/search');
+        }
       };
     
     return ( <form className="search">
@@ -31,7 +35,9 @@ export default function Search({hideButtons})
             <Button onClick={search} type="submit" variant="outlined">
             Google Search
             </Button>
-            <Button variant="outlined">I'm Feeling Lucky</Button>
+            <Link to="https://doodles.google/">
+              <Button variant="outlined">I'm Feeling Lucky</Button>
+            </Link>
         </div>
   </form>
   );
